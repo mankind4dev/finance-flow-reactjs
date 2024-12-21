@@ -15,8 +15,7 @@ export default function Dashboard() {
             <DashboardAside />
           </div>
           <div className="flex w-full bg-slate-300">
-            <DashBoardHome />
-            {/* {children} */}
+            <DashBoardHome /> 
           </div>
         </div>
       </div>

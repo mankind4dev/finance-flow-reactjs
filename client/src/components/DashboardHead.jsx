@@ -5,7 +5,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useSelector } from "react-redux";
 
 const DashboardHead = () => {
-  const { currentUser, loading, error } = useSelector((state) => state.finance);
+  const { mainUser, loading, error } = useSelector((state) => state.finance);
   const [formDatas, setFormDatas] = useState({})
   return (
     <>
@@ -45,13 +45,14 @@ const DashboardHead = () => {
           <div className="flex gap-3 justify-center text-center ">
             <p className="flex p-1 bg-white w-[100px] h-[100px] rounded-full">
               <img
-                src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fuser-icon&psig=AOvVaw2ANFcg6S4IntlJC2vQxAcC&ust=1734825776970000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLDDsOXHt4oDFQAAAAAdAAAAABAE"
+                src={mainUser.avatar}
                 className="w-full h-full rounded-full object-fill bg-white-200 cursor-pointer"
+                alt={mainUser.companyName}
               />
             </p>
             <p className="flex flex-col justify-center text-center ">
-              <span className=""> df </span>
-              <span className="">wrfwe</span>
+              <span className="text-red-600">{mainUser.companyName}</span>
+              <span className="text-red-800">{mainUser.email}</span>
             </p>
           </div>
         </div>
