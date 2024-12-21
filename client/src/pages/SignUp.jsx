@@ -66,7 +66,7 @@ export default function SignUp() {
   return (
     <>
       <div className="min-w-full min-h-full ">
-        <div className="flex flex-col sm:flex md:flex-row h-[100vh] w-[100%] bg-[rgba(66,133,244,1)]">
+        <div className="flex flex-col sm:flex-row md:flex h-[100vh] w-[100%] bg-[rgba(66,133,244,1)]">
           <div className="flex flex-col px-8 w-[100%] pt-6 bg-[rgba(255,255,255,0.3)]">
             <img
               src="/images/logo.png"
@@ -75,7 +75,7 @@ export default function SignUp() {
               height={100}
               className="items-center"
             />
-            <p className="text-[20px] font-[400] sm:mt-[2rem] md:mt-[6rem] w-full">
+            <p className="md:text-[28px] sm:text-[15px] font-[400] sm:mt-[2rem] md:mt-[2rem] w-full">
               This app has been a game-changer for my small business! Connecting
               my bank account was super easy, and now I can see all my cash flow
               and expenses in one place. The automated reports save me so much
@@ -84,13 +84,13 @@ export default function SignUp() {
               overspending. Highly recommend this to any SME owner who wants to
               stay on top of their financial health without the stress!
             </p>
-            <p className="text-[25px] font-[600] py-3">
+            <p className="md:text-[25px] sm:text-[16px] font-[600] py-3">
               .Jane O., Owner of FreshBakes Confectioneries
             </p>
           </div>
 
           <div className="w-full  bg-white align-center">
-            <div className="flex flex-col w-full justify-center px-32 pt-7   ">
+            <div className="flex flex-col w-full justify-center px-2  pt-7">
               <h1 className="text-start text-[28px] font-[700] mb-4 text-black">
                 Create an account
               </h1>
@@ -155,7 +155,7 @@ export default function SignUp() {
                   <select
                     id="country"
                     onChange={handleChange}
-                    className="p-2  text-[20px] w-full"
+                    className="p-2  text-[20px] w-full mx-auto"
                   >
                     <option value=""> e.g Nigeria</option>
                     <option value="Canada">Canada</option>
@@ -225,7 +225,7 @@ export default function SignUp() {
                 </div>
                 <button
                   type="submit"
-                  className="flex justify-center p-4 rounded-[30px]  w-full bottom-2 mt-5  text-[rgba(230,242,242,1)]  bg-[rgba(66,133,244,1)] text-[rgba(0,0,0,1)] text-[20px] font-[500]"
+                  className="flex justify-center p-4 rounded-[30px]  w-full bottom-2 mt-5   bg-[rgba(66,133,244,1)] text-[rgba(0,0,0,1)] text-[20px] font-[500]"
                 >
                   {loading ? (
                     <>
@@ -251,9 +251,9 @@ export default function SignUp() {
                 </p>
                 <Link
                   to="/"
-                  className="flex justify-center text-center   mt-4 gap-2 p-2 hover:underline"
+                  className="flex justify-center text-center   mt-1 gap-2  hover:underline"
                 >
-                  <BsHouseFill className="  self-center" />
+                  <BsHouseFill className="self-center" />
                   <span className="text-[15px] text-slate-500"></span>
                   Go back home
                 </Link>

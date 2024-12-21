@@ -58,7 +58,7 @@ export default function SignIn() {
   return (
     <>
       <div className="min-w-full min-h-full">
-        <div className="flex md:flex sm:row h-[100vh] w-[100%]  bg-[rgba(66,133,244,1)]  ">
+        <div className="flex flex-col md:flex sm:row h-[100vh] w-[100%]  bg-[rgba(66,133,244,1)]  ">
           <div className="flex flex-col px-8 pt-5  w-[100%] bg-[rgba(255,255,255,0.3)]">
             <img
               src="/images/logo.png"
