@@ -31,7 +31,7 @@ const LinkBank = () => {
           />
         </div>
         <div className="flex justify-center pt-32 ">
-        <Link href={"/signin"}>
+        <Link to="/sign-up">
           <button  className="p-[20px] px-[30px] rounded-[26px] text-xl font-normal  text-[rgba(66,133,244,1)] bg-white">
             Get Started
           </button>

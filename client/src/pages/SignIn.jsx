@@ -7,7 +7,12 @@ import OAuth from "../components/OAuth";
 import { useState } from "react";
 import { Alert, Spinner } from "flowbite-react";
 import { useDispatch, useSelector } from "react-redux";
-import { signInFailure, signInStart, signInSuccess } from "../redux/user/userSlice";
+import {
+  signInFailure,
+  signInStart,
+  signInSuccess,
+} from "../redux/user/userSlice";
+import { BsHouseFill } from "react-icons/bs";
 
 export default function SignIn() {
   const [formDatas, setFormDatas] = useState({});
@@ -138,15 +143,22 @@ export default function SignIn() {
                   )}
                 </button>
               </form>
-              <div className="flex justify-center text-center mt-3 whitespace-nowrap">
-                <p className="text-[rgba(83,83,83,1)] text-[16px]">
-                  Do not have an account?
+              <div className="flex flex-col justify-center text-center mt-3 whitespace-nowrap">
+                <p className="flex self-center">
+                  <span className="text-[rgba(83,83,83,1)] text-[16px]">
+                    Do not have an account?
+                  </span>
+                  <Link
+                    to="/sign-up"
+                    className="ml-2 text-[rgba(66,133,244,1)] text-[18px]"
+                  >
+                    Create an account
+                  </Link>
                 </p>
-                <Link
-                  to="/sign-up"
-                  className="ml-2 text-[rgba(66,133,244,1)] text-[18px]"
-                >
-                  Create an account
+                <Link to="/" className="flex justify-center text-center   mt-4 gap-2 p-2 hover:underline">
+                  <BsHouseFill className="  self-center" />
+                  <span className="text-[15px] text-slate-500"></span>
+                  Go back home
                 </Link>
               </div>
               {error && (

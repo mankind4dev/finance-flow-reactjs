@@ -14,17 +14,17 @@ const Footer = () => {
             <img src="/images/logo.png" alt="logo" width={130} height={100} />
           </Link>
           <ul className="flex text-center self-center">
-            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-200">
-              <Link href={"/advertisement"}>Advertisement</Link>
+            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-500 hover:underline">
+              <Link to="/advertisement">Advertisement</Link>
             </li>
-            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-200">
-              <Link href={"/feature"}>About</Link>
+            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-500 hover:underline">
+              <Link to="/feature">About</Link>
             </li>
-            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-200">
-              <Link href={"/about"}>FAQ</Link>
+            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-500 hover:underline">
+              <Link to="/about">FAQ</Link>
             </li>
-            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-200">
-              <Link href={"/contact-us"}>Support</Link>
+            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-500 hover:underline">
+              <Link to="/contact-us">Support</Link>
             </li>
           </ul>
           <ul className="flex text-center self-center gap-x-4">
@@ -46,18 +46,18 @@ const Footer = () => {
           </ul>
         </div>
         <div className=" flex justify-around mt-8">
-          <p className="text-[rgba(17,17,17,0.87)] text-[14px] font-[400] self-center">
+          <p className="text-[rgba(17,17,17,0.87)] text-[20px] font-[400] self-center">
             &copy; <span>{new Date().getFullYear()}</span> Finance Flow 
           </p>
           <ul className="flex text-center self-center">
-            <li className=" text-[20px] font-[400] mr-6 text-[rgba(17,17,17,0.87)] hover:text-gray-200">
-              <Link href={"/advertisement"}>Terms of use</Link>
+            <li className=" text-[20px] font-[400] mr-6 text-[rgba(17,17,17,0.87)] hover:text-gray-500 hover:underline">
+              <Link to="/advertisement">Terms of use</Link>
             </li>
-            <li className=" text-[20px] font-[400] mr-6 text-[rgba(17,17,17,0.87)] hover:text-gray-200">
-              <Link href={"/feature"}>Privacy policy</Link>
+            <li className=" text-[20px] font-[400] mr-6 text-[rgba(17,17,17,0.87)] hover:text-gray-500 hover:underline">
+              <Link to="/feature">Privacy policy</Link>
             </li>
-            <li className=" text-[20px] font-[400] mr-6 text-[rgba(17,17,17,0.87)] hover:text-gray-200">
-              <Link href={"/about"}>Cookies</Link>
+            <li className=" text-[20px] font-[400] mr-6 text-[rgba(17,17,17,0.87)] hover:text-gray-500 hover:underline">
+              <Link to="/about">Cookies</Link>
             </li> 
           </ul>
         </div>

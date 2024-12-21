@@ -15,27 +15,27 @@ const Header = () => {
             <img src="/images/logo.png" alt="logo" width={200} height={100} />
           </Link>
           <ul className="hidden md:flex text-center self-center ">
-            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-200">
+            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-500 hover:underline">
               <Link to="/">Home</Link>
             </li>
-            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-200">
+            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-500 hover:underline">
               <Link to="/feature">Features</Link>
             </li>
-            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-200">
+            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-500 hover:underline">
               <Link to="/about">About</Link>
             </li>
-            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-200">
+            <li className="text-[20px] font-[500] mr-6 text-[rgba(0,0,0,1)] hover:text-gray-500 hover:underline">
               <Link to="/contact-us">Contact us</Link>
             </li>
           </ul>
           <div className="flex justify-between items-center">
             <Link to="/sign-up">
-              <li className="hidden md:flex text-[20px] font-[500] mr-6 whitespace-nowrap bg-[rgba(66,133,244,1)] text-white list-none py-4 px-12 rounded-[50px]">
+              <li className="hidden md:flex text-[20px] font-[500] mr-6 whitespace-nowrap bg-[rgba(66,133,244,1)] text-white list-none py-4 px-12 rounded-[50px]  hover:underline">
                 Get Started
               </li>
             </Link>
             <Link to="/sign-in">
-              <li className="text-[20px] font-[500] mr-6 whitespace-nowrap bg-[rgba(66,133,244,1)] text-white list-none py-4 px-12 rounded-[50px]">
+              <li className="text-[20px] font-[500] mr-6 whitespace-nowrap bg-[rgba(66,133,244,1)] text-white list-none py-4 px-12 rounded-[50px] hover:underline">
                 Sign In
               </li>
             </Link>

@@ -11,7 +11,7 @@ const SetUp = () => {
             SET UP YOUR EXPENSE LIMIT AND NEVER GO BANKRUPT
           </p>
           <div className="flex items-end  justify-center mt-32 gap-7 ">
-            <Link href={"/signin"}>
+            <Link to="/sign-up">
               <button className="p-[20px] px-[30px] rounded-[26px] text-xl font-normal  text-[rgba(66,133,244,1)] bg-white">
                 Get Started
               </button>

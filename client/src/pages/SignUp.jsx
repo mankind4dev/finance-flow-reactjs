@@ -1,7 +1,7 @@
 "use client";
 import { FcGoogle } from "react-icons/fc";
 import { FaRegEnvelope } from "react-icons/fa";
-import { BsFillPeopleFill } from "react-icons/bs";
+import { BsFillPeopleFill, BsHouseFill } from "react-icons/bs";
 import { PiLockKeyLight } from "react-icons/pi";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
@@ -11,7 +11,7 @@ import { Alert, Spinner } from "flowbite-react";
 export default function SignUp() {
   const [formDatas, setFormDatas] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
-  const [signUpSuccess, setSignUpSuccess] = useState(false)
+  const [signUpSuccess, setSignUpSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   console.log(formDatas);
@@ -115,7 +115,6 @@ export default function SignUp() {
                   <BsFillPeopleFill className="text-start justify-center pl-2  text-[35px]" />
                   <input
                     type="text"
-                    
                     id="companyName"
                     onChange={handleChange}
                     className="text-start text-[20px]  p-2 w-full border-none outline-none"
@@ -132,7 +131,6 @@ export default function SignUp() {
                     type="email"
                     id="email"
                     onChange={handleChange}
-                    
                     className="text-start text-[20px]  p-2 w-full outline-none"
                     placeholder="example@gmail.com"
                   />
@@ -146,7 +144,6 @@ export default function SignUp() {
                     type="password"
                     id="password"
                     onChange={handleChange}
-                    
                     className="text-start text-[20px]  p-2 w-full outline-none"
                     placeholder="Enter your password...."
                   />
@@ -158,7 +155,6 @@ export default function SignUp() {
                   <select
                     id="country"
                     onChange={handleChange}
-                    
                     className="p-2  text-[20px] w-full"
                   >
                     <option value=""> e.g Nigeria</option>
@@ -241,15 +237,25 @@ export default function SignUp() {
                   )}
                 </button>
               </form>
-              <div className="flex justify-center text-center py-3  whitespace-nowrap">
-                <p className="text-[rgba(83,83,83,1)] text-[16px]">
-                  Already have an account?
+              <div className="flex flex-col justify-center text-center py-3  whitespace-nowrap">
+                <p className="flex self-center">
+                  <span className="text-[rgba(83,83,83,1)] text-[16px]">
+                    Already have an account?
+                  </span>
+                  <Link
+                    to="/sign-in"
+                    className="ml-2 text-[rgba(66,133,244,1)] text-[18px]"
+                  >
+                    Sign in
+                  </Link>
                 </p>
                 <Link
-                  to="/sign-in"
-                  className="ml-2 text-[rgba(66,133,244,1)] text-[18px]"
+                  to="/"
+                  className="flex justify-center text-center   mt-4 gap-2 p-2 hover:underline"
                 >
-                  Sign in
+                  <BsHouseFill className="  self-center" />
+                  <span className="text-[15px] text-slate-500"></span>
+                  Go back home
                 </Link>
               </div>
               {errorMessage && signUpSuccess && (
