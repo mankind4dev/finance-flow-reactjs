@@ -89,7 +89,7 @@ export default function SignUp() {
             </p>
           </div>
 
-          <div className="w-full  bg-white align-center">
+          <div className="w-[100%]  bg-white align-center">
             <div className="flex flex-col w-full justify-center px-2  pt-7">
               <h1 className="text-start text-[28px] font-[700] mb-4 text-black">
                 Create an account
@@ -104,8 +104,7 @@ export default function SignUp() {
                 </span>
               </p>
               <form
-                onSubmit={handleSubmit}
-                action=""
+                onSubmit={handleSubmit} 
                 className="flex flex-col mt-5"
               >
                 <label className="text-[20px] font[500] mb-1 text-[rgba(0,0,0,1)]">
@@ -225,7 +224,7 @@ export default function SignUp() {
                 </div>
                 <button
                   type="submit"
-                  className="flex justify-center p-4 rounded-[30px]  w-full bottom-2 mt-5   bg-[rgba(66,133,244,1)] text-[rgba(0,0,0,1)] text-[20px] font-[500]"
+                  className="flex justify-center p-2 rounded-[30px]  w-full bottom-2 mt-5   bg-[rgba(66,133,244,1)] text-[rgba(0,0,0,1)] text-[20px] font-[500]"
                 >
                   {loading ? (
                     <>
