@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function DashBoardHome() {
+export default function Home() {
   return (
     <div>DashBoardHome</div>
   )

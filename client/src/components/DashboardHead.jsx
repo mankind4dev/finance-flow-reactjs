@@ -2,15 +2,36 @@
 import { Avatar, Button, Navbar, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  deleteUserFailure,
+  deleteUserSuccess,
+  signOutStart,
+} from "../redux/user/userSlice";
 
 const DashboardHead = () => {
   const { mainUser, loading, error } = useSelector((state) => state.finance);
-  const [formDatas, setFormDatas] = useState({})
+  const [formDatas, setFormDatas] = useState({});
+  const dispatch = useDispatch()
+
+  const handleSignOut = async () => {
+    try {
+      dispatch(signOutStart());
+      const res = await fetch("/api/auth/signout");
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
   return (
     <>
-      <Navbar className="flex justify-between sticky w-full p-2 bg-[rgba(217,217,217,1)]">
-        <img src="/images/logo.png" width={100} height={100} alt="logo" />
+      <Navbar className="flex justify-between  w-full p-2  ">
+        <img src={"/images/logo.png"} width={100} height={100} alt="logo" />
         <div className="flex gap-6">
           <form action="" className="flex self-center p-3">
             <TextInput
@@ -43,7 +64,7 @@ const DashboardHead = () => {
             </svg>
           </div>
           <div className="flex gap-3 justify-center text-center ">
-            <p className="flex p-1 bg-white w-[100px] h-[100px] rounded-full">
+            <p className="flex p-1   w-[100px] h-[100px] bg-gray-400 rounded-full">
               <img
                 src={mainUser.avatar}
                 className="w-full h-full rounded-full object-fill bg-white-200 cursor-pointer"
@@ -51,10 +72,18 @@ const DashboardHead = () => {
               />
             </p>
             <p className="flex flex-col justify-center text-center ">
-              <span className="text-red-600">{mainUser.companyName}</span>
-              <span className="text-red-800">{mainUser.email}</span>
+              <span className="text-red-600 truncate">
+                {mainUser.companyName}
+              </span>
+              <span className="text-red-800 truncate">{mainUser.email}</span>
             </p>
           </div>
+          <button
+            onClick={handleSignOut}
+            className="flex justify-center self-center text-end"
+          >
+            Sign Out
+          </button>
         </div>
       </Navbar>
     </>
