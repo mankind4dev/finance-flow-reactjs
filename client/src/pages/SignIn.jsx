@@ -58,14 +58,14 @@ export default function SignIn() {
   return (
     <>
       <div className="min-w-full min-h-full">
-        <div className="flex flex-col md:flex sm:row h-[100vh] w-[100%]  bg-[rgba(66,133,244,1)]  ">
-          <div className="flex flex-col px-8 pt-5  w-[100%] bg-[rgba(255,255,255,0.3)]">
+        <div className="flex flex-col  md:flex-row sm:flex-row h-[100vh] w-[100%]  bg-[rgba(66,133,244,1)]">
+          <div className="flex flex-col px-6 pt-5  w-[100%] bg-[rgba(255,255,255,0.3)]">
             <img
               src="/images/logo.png"
               alt="logo"
               width={200}
               height={100}
-              className="items-center"
+              className="items-center mb-3"
             />
             <p className="md:text-[28px] sm:text-[15px] font-[400] sm:mt-[2rem] md:mt-[2rem] w-full">
               This app has been a game-changer for my small business! Connecting
@@ -81,13 +81,13 @@ export default function SignIn() {
             </p>
           </div>
 
-          <div className="w-[100%]  p-2 bg-white align-center">
+          <div className="w-[100%]  p-2 px-4 bg-white align-center">
             <div className="flex flex-col w-full justify-center">
               <h1 className="text-start text-[28px] font-[700] mb-4 text-black">
                 Welcome back
               </h1>
-              <p className="flex justify-center p-2 rounded-[30px]  w-full bottom-2 border-[1px] border-[rgba(66,133,244,1)] text-[rgba(0,0,0,1)] text-[20px] font-[500]">
-                <FcGoogle className="flex text-center self-center mr-4 text-20" />
+              <p className="flex justify-center p-1 rounded-[30px]  w-full bottom-2 border-[1px] border-[rgba(66,133,244,1)] text-[rgba(0,0,0,1)] text-[17px] font-[500]">
+                <FcGoogle className="flex text-center self-center mr-4 text-[30px]" />
                 <OAuth />
               </p>
               <p className="relative flex justify-center mt-10 border-[1px] border-[rgba(188,188,188,1)]">
@@ -105,7 +105,7 @@ export default function SignIn() {
                     type="email"
                     id="email"
                     onChange={handleChange}
-                    className="text-start text-[20px] w-full  p-2 outline-none"
+                    className="text-start text-[20px] w-full  p-2 outline-none border-none "
                     placeholder="example@gmail.com"
                   />
                 </div>
@@ -118,7 +118,7 @@ export default function SignIn() {
                     type="password"
                     id="password"
                     onChange={handleChange}
-                    className="text-start text-[20px]  p-2 w-full outline-none"
+                    className="text-start text-[20px]  p-2 w-full outline-none border-none"
                     placeholder="Enter your password...."
                   />
                 </div>
@@ -130,7 +130,7 @@ export default function SignIn() {
 
                 <button
                   type="submit"
-                  disabled={loading}
+                  // disabled={loading}
                   className="flex justify-center p-2 rounded-[30px]  w-full bottom-2 mt-8 text-]rgba(230,242,242,1)]   bg-[rgba(66,133,244,1)] text-[rgba(0,0,0,1)] text-[20px] font-[500]"
                 >
                   {loading ? (

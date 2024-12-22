@@ -67,7 +67,7 @@ export default function SignUp() {
     <>
       <div className="min-w-full min-h-full ">
         <div className="flex flex-col sm:flex-row md:flex h-[100vh] w-[100%] bg-[rgba(66,133,244,1)]">
-          <div className="flex flex-col px-8 w-[100%] pt-6 bg-[rgba(255,255,255,0.3)]">
+          <div className="flex flex-col px-6 w-[100%] pt-6 bg-[rgba(255,255,255,0.3)]">
             <img
               src="/images/logo.png"
               alt="logo"
@@ -90,12 +90,12 @@ export default function SignUp() {
           </div>
 
           <div className="w-[100%]  bg-white align-center">
-            <div className="flex flex-col w-full justify-center px-2  pt-7">
+            <div className="flex flex-col w-full justify-center px-6  pt-7">
               <h1 className="text-start text-[28px] font-[700] mb-4 text-black">
                 Create an account
               </h1>
               <div className="flex justify-center p-2 rounded-[30px]  w-full bottom-2 border-[1px] border-[rgba(66,133,244,1)] text-[rgba(0,0,0,1)] text-[20px] font-[500]">
-                <FcGoogle className="flex text-center self-center mr-4 text-20" />
+                <FcGoogle className="flex text-center self-center mr-4 text-[30px]" />
                 <OAuth />
               </div>
               <p className="relative flex justify-center mt-10 border-[1px] border-[rgba(188,188,188,1)]">
@@ -130,7 +130,7 @@ export default function SignUp() {
                     type="email"
                     id="email"
                     onChange={handleChange}
-                    className="text-start text-[20px]  p-2 w-full outline-none"
+                    className="text-start text-[20px]  p-2 w-full outline-none border-none"
                     placeholder="example@gmail.com"
                   />
                 </div>
@@ -143,7 +143,7 @@ export default function SignUp() {
                     type="password"
                     id="password"
                     onChange={handleChange}
-                    className="text-start text-[20px]  p-2 w-full outline-none"
+                    className="text-start text-[20px]  p-2 w-full outline-none border-none"
                     placeholder="Enter your password...."
                   />
                 </div>
@@ -154,7 +154,7 @@ export default function SignUp() {
                   <select
                     id="country"
                     onChange={handleChange}
-                    className="p-2  text-[20px] w-full mx-auto"
+                    className="p-2  text-[20px] w-full mx-auto border-none"
                   >
                     <option value=""> e.g Nigeria</option>
                     <option value="Canada">Canada</option>

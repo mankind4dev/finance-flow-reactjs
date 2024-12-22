@@ -7,12 +7,14 @@ import {
   deleteUserFailure,
   deleteUserSuccess,
   signOutStart,
-} from "../redux/user/userSlice";
+} from "../../redux/user/userSlice";
+import { FaHamburger } from "react-icons/fa";
+import { IoMdMenu } from "react-icons/io";
 
 const DashboardHead = () => {
   const { mainUser, loading, error } = useSelector((state) => state.finance);
   const [formDatas, setFormDatas] = useState({});
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleSignOut = async () => {
     try {
@@ -32,8 +34,9 @@ const DashboardHead = () => {
     <>
       <Navbar className="flex justify-between  w-full p-2  ">
         <img src={"/images/logo.png"} width={100} height={100} alt="logo" />
-        <div className="flex gap-6">
-          <form action="" className="flex self-center p-3">
+
+        <div className="flex gap-2 sm:gap-6">
+          <form action="" className="hidden sm:flex  self-center p-3">
             <TextInput
               type="text"
               placeholder="Search..."
@@ -41,12 +44,12 @@ const DashboardHead = () => {
               className="hidden lg:inline"
             />
           </form>
-          <Button className="w-12 h-10 lg:hidden" color="gray" pill>
+          <Button className="w-12 h-10 hidden lg:hidden" color="gray" pill>
             <AiOutlineSearch />
           </Button>
           <div className="flex self-center">
             <svg
-              className="w-6 h-6 text-gray-800 dark:text-white"
+              className="w-8 h-8 text-gray-800 dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -64,26 +67,21 @@ const DashboardHead = () => {
             </svg>
           </div>
           <div className="flex gap-3 justify-center text-center ">
-            <p className="flex p-1   w-[100px] h-[100px] bg-gray-400 rounded-full">
+            <p className="flex p-1   w-[50px] h-[50px] sm:w-[100px] sm:h-[100px] bg-gray-400 rounded-full">
               <img
                 src={mainUser.avatar}
                 className="w-full h-full rounded-full object-fill bg-white-200 cursor-pointer"
                 alt={mainUser.companyName}
               />
             </p>
-            <p className="flex flex-col justify-center text-center ">
+            <p className="hidden sm:flex sm:flex-col md:flex-col justify-center text-center ">
               <span className="text-red-600 truncate">
                 {mainUser.companyName}
               </span>
               <span className="text-red-800 truncate">{mainUser.email}</span>
             </p>
+            <IoMdMenu className="flex sm:hidden justify-center text-center self-center text-[30px] cursor-pointer" />
           </div>
-          <button
-            onClick={handleSignOut}
-            className="flex justify-center self-center text-end"
-          >
-            Sign Out
-          </button>
         </div>
       </Navbar>
     </>
