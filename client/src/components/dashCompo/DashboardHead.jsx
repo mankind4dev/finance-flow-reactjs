@@ -47,7 +47,7 @@ const DashboardHead = () => {
           <Button className="w-12 h-10 hidden lg:hidden" color="gray" pill>
             <AiOutlineSearch />
           </Button>
-          <div className="flex self-center">
+          <div className="flex self-center cursor-pointer">
             <svg
               className="w-8 h-8 text-gray-800 dark:text-white"
               aria-hidden="true"
@@ -74,7 +74,7 @@ const DashboardHead = () => {
                 alt={mainUser.companyName}
               />
             </p>
-            <p className="hidden sm:flex sm:flex-col md:flex-col justify-center text-center ">
+            <p className="hidden sm:flex sm:flex-col md:flex-col justify-center  text-start ">
               <span className="text-red-600 truncate">
                 {mainUser.companyName}
               </span>

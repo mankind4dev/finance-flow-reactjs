@@ -5,15 +5,15 @@ import DashboardAside from "./DashboardAside";
 export default function DashboardHome({ children }) {
   return (
     <>
-      <div className=" ">
-        <div className=" w-full border-b-2 border-slate-200">
+      <div className=" relative ">
+        <div className="w-full border-b-2 border-slate-200">
           <DashboardHead />
         </div>
         <div className="flex  ">
-          <div className="hidden md:flex justify-center text-start  w-[300px]  border-r-2">
+          <div className="hidden sticky  md:flex justify-center text-start  w-[300px]  border-r-2">
             <DashboardAside />
           </div>
-          <div className="flex w-full bg-white px-3">{children}</div>
+          <div className="flex h-full   flex-grow w-full bg-white px-3 pb-5">{children}</div>
         </div>
       </div>
     </>

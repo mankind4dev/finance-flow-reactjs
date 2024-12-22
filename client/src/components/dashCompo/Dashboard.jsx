@@ -16,6 +16,9 @@ export default function Dashboard() {
           <div className="flex flex-col sm:flex-row mt-2">
             <Balance />
           </div>
+          <div className="">
+            dsfghjk
+          </div>
         </div>
       </DashboardHome>
     </>

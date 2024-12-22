@@ -32,12 +32,11 @@ const DashboardAside = () => {
 
   return (
     <>
-      <Sidebar className="flex flex-col w-full  ">
+      <Sidebar className="flex flex-col w-full h-full ">
         <div className="flex justify-center text-center gap-2">
           <Avatar
             src={mainUser.avatar}
-            alt={mainUser.companyName}
-            //   style={{ width: "100px", height: "100px" }}
+            alt={mainUser.companyName} 
             className="rounded-full p-4 bg-slate-300"
           />
           <p className="flex flex-col justify-center">
@@ -46,32 +45,32 @@ const DashboardAside = () => {
           </p>
         </div>
         <Sidebar.ItemGroup className="flex flex-col gap-2 pt-2">
-          <Link to="/dashboard-home">
-            <Sidebar.Item className="py-4 text-[20px] mt-4">
+          <Link to="/dashboard">
+            <Sidebar.Item className=" py-1 text-[20px] mt-4">
               Dashboard
             </Sidebar.Item>
           </Link>
           <Link to="/reports">
-            <Sidebar.Item className="py-4 text-[20px]">Reports</Sidebar.Item>
+            <Sidebar.Item className=" py-1 text-[20px]">Reports</Sidebar.Item>
           </Link>
           <Link to="/expenses">
-            <Sidebar.Item className="py-4 text-[20px]">Expenses</Sidebar.Item>
+            <Sidebar.Item className=" py-1 text-[20px]">Expenses</Sidebar.Item>
           </Link>
           <Link to="/income">
-            <Sidebar.Item className="py-4 text-[20px]">Income</Sidebar.Item>
+            <Sidebar.Item className=" py-1 text-[20px]">Income</Sidebar.Item>
           </Link>
           <Link to="/account">
-            <Sidebar.Item className="py-4 text-[20px]">Account</Sidebar.Item>
+            <Sidebar.Item className=" py-1 text-[20px]">Account</Sidebar.Item>
           </Link>
           <Link to="/expenses-tracking">
-            <Sidebar.Item className="py-4 text-[20px]">
+            <Sidebar.Item className=" py-1 text-[20px]">
               Expenses Tracking
             </Sidebar.Item>
           </Link>
           <Link to="/profile">
-            <Sidebar.Item className="py-4 text-[20px]">Profile</Sidebar.Item>
+            <Sidebar.Item className=" py-1 text-[20px]">Profile</Sidebar.Item>
           </Link>
-          <Sidebar.Item onClick={handleSignOut} className="py-4 text-[20px] cursor-pointer">
+          <Sidebar.Item onClick={handleSignOut} className=" py-1 text-[20px] cursor-pointer">
           <LiaSignOutAltSolid className="rotate-[-90deg] text-[50px] text-red-800" />
           </Sidebar.Item>
         </Sidebar.ItemGroup>

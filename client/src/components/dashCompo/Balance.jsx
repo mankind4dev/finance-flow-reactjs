@@ -18,13 +18,13 @@ export default function Balance() {
               Available Balance
             </span>
             <span className="flex self-center">
-              <IoMdEyeOff className="text-[20px] text-white cursor-pointer" />
-              <IoEye className="hidden text-[20px]" />
+              <IoEye className="text-[13px] sm:text-[20px] text-white cursor-pointer" />
+              <IoMdEyeOff className="hidden text-[13px] sm:text-[20px] text-white cursor-pointer" />
             </span>
           </p>
-          <div className="flex justify-start text-end">
-            <p className="flex text-white w-full p-0 m-0">
-              <TbCurrencyNaira className="self-end text-[20px] sm:text-[28px]" />
+          <div className="flex justify-start text-end w-full h-full">
+            <p className="flex justify-start text-start self-end text-white w-full p-0 mb-2 sm:m-0">
+              <TbCurrencyNaira className="self-end text-[20px] sm:text-[25px]" />
               <span className="text-[22px]">5,368,893.59</span>
             </p>
           </div>
