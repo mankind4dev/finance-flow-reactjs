@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/sign-in" element={<SignIn />} />
         <Route exact path="/sign-up" element={<SignUp />} />
         <Route element={<PrivateRoute />}>
-          <Route exact path="/dashboard-home" element={<Dashboard />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/account" element={<Account />} />
           <Route exact path="/expenses" element={<Expenses />} />
           <Route
