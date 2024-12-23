@@ -73,7 +73,7 @@ const DashboardAside = () => {
             <Sidebar.Item className=" py-1 text-[20px]">Profile</Sidebar.Item>
           </Link>
           <Sidebar.Item onClick={handleSignOut} className=" py-1 text-[20px] cursor-pointer">
-          <LiaSignOutAltSolid className="rotate-[-90deg] text-[50px] text-red-800" />
+          <LiaSignOutAltSolid className="rotate-[-90deg] text-[30px] text-red-800" />
           </Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar>
