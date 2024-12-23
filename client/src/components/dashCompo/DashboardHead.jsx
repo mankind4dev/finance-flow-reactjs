@@ -7,14 +7,16 @@ import {
   deleteUserFailure,
   deleteUserSuccess,
   signOutStart,
-} from "../../redux/user/userSlice";
-import { FaHamburger } from "react-icons/fa";
-import { IoMdMenu } from "react-icons/io";
+} from "../../redux/user/userSlice"; 
+import { IoMdMenu } from "react-icons/io"; 
+import DashboardMenu from "./dashboardMenu";
+import { FaTimes } from "react-icons/fa";
 
 const DashboardHead = () => {
   const { mainUser, loading, error } = useSelector((state) => state.finance);
   const [formDatas, setFormDatas] = useState({});
   const dispatch = useDispatch();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleSignOut = async () => {
     try {
@@ -29,6 +31,10 @@ const DashboardHead = () => {
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
     }
+  };
+
+  const sidebarToggle = () => {
+    setIsSidebarOpen(!isSidebarOpen);
   };
   return (
     <>
@@ -80,10 +86,21 @@ const DashboardHead = () => {
               </span>
               <span className="text-red-800 truncate">{mainUser.email}</span>
             </p>
-            <IoMdMenu className="flex sm:hidden justify-center text-center self-center text-[30px] cursor-pointer" />
+            {isSidebarOpen ? (
+              < FaTimes
+                onClick={sidebarToggle}
+                className="flex sm:hidden justify-center text-center self-center text-[30px] cursor-pointer"
+              />
+            ) : (
+              <IoMdMenu
+                onClick={sidebarToggle}
+                className="flex sm:hidden justify-center text-center self-center text-[30px] cursor-pointer"
+              />
+            )}
           </div>
         </div>
       </Navbar>
+      {isSidebarOpen && <DashboardMenu />}
     </>
   );
 };
