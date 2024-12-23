@@ -34,10 +34,12 @@ const DashboardAside = () => {
     <>
       <Sidebar className="flex flex-col w-full h-full ">
         <div className="flex justify-center text-center gap-2">
-          <Avatar
+          <img
             src={mainUser.avatar}
             alt={mainUser.companyName} 
-            className="rounded-full p-4 bg-slate-300"
+            // className="rounded-full p-4 bg-slate-300"
+            className="w-20 h-20 rounded-full object-fill bg-white-200 cursor-pointer"
+
           />
           <p className="flex flex-col justify-center">
             <span className="font-bold capitalize">Welcome back</span>

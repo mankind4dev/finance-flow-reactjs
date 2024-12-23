@@ -1,21 +1,138 @@
 import { Button, Spinner } from "flowbite-react";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { app } from "../../firebase";
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
+import {
+  updateUserFailure,
+  updateUserStart,
+  updateUserSuccess,
+} from "../../redux/user/userSlice";
 
 export default function ProfileForm() {
-  const [formDatas, setFormDatas] = useState({});
-  const [fileUploadError, setFileUploadError] = useState(null);
-  const [filePercentage, setFilePercentage] = useState(false);
+  const fileRef = useRef(null);
   const { mainUser, loading, error } = useSelector((state) => state.finance);
+  // const [formDatas, setFormDatas] = useState({});
+  const [formDatas, setFormDatas] = useState({
+    companyName: mainUser?.companyName || "",
+    email: mainUser?.email || "",
+    country: mainUser?.country || "",
+  });
+  const [file, setFile] = useState(null);
+  const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [fileUploadError, setFileUploadError] = useState(false);
+  const [filePercentage, setFilePercentage] = useState(0);
+  const dispatch = useDispatch();
+  console.log(formDatas);
+
+  useEffect(() => {
+    if (file) {
+      handleFileUpload(file);
+    }
+  }, [file]);
+
+  const handleFileUpload = (file) => {
+    const storage = getStorage(app);
+    // const fileName = new Date().getTime() + file.name;
+    const fileName = `${new Date().getTime()}_${file.name}`;
+    const storageRef = ref(storage, fileName);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setFilePercentage(Math.round(progress));
+      },
+      (error) => {
+        console.log("File upload error:", error);
+        setFileUploadError(true);
+      },
+      async () => {
+        try {
+          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+          setFormDatas((prev) => ({ ...prev, avatar: downloadURL }));
+          setFileUploadError(false);
+        } catch (error) {
+          console.error("Get download URL error:", error);
+        }
+      }
+    ); 
+  };
+
+  const handleChange = (e) => {
+    setFormDatas({ ...formDatas, [e.target.id]: e.target.value });
+  };
+
+  // const handleChange = (e) => {
+  //   const { id, value } = e.target;
+  //   setFormDatas((prev) => ({ ...prev, [id]: value }));
+  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (filePercentage > 0 && filePercentage < 100) {
+      alert("Please wait until the image upload is complete.");
+      return;
+    }
+    // if (!mainUser?._id) {
+    //   alert("User ID is missing. Cannot update the profile.");
+    //   return;
+    // }
+
+    try {
+      dispatch(updateUserStart());
+      const res = await fetch(`/api/users/update/${mainUser._id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formDatas),
+      });
+      // const data = await res.json();
+      // if (data.success === false) {
+      //   dispatch(updateUserFailure(data.message));
+      //   return;
+      // }
+
+      const data = await res.json();
+      if (!res.ok || data.success === false) {
+        dispatch(updateUserFailure(data.message || "Update failed."));
+        return;
+      }
+
+      dispatch(updateUserSuccess(data));
+      setUpdateSuccess(true);
+      // alert("Profile updated successfully!");
+    } catch (error) {
+      // dispatch(updateUserFailure(error.message));
+      console.error("Update error:", error);
+      dispatch(updateUserFailure(error.message || "Update failed."));
+    }
+  };
+  console.log("Form data being submitted: ", formDatas);
+
   return (
     <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
-      <form className="flex flex-col gap-4">
-        <input type="file" accept="image/*" />
+      {/* <h1 className="text-3xl font-semibold text-center mt-2">Profile</h1> */}
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <input
+          type="file"
+          accept="image/*"
+          ref={fileRef}
+          hidden
+          onChange={(e) => setFile(e.target.files[0])}
+        />
         <img
-          src={mainUser.avatar}
-          alt={mainUser.companyName}
-          className="rounded-full h-24 w-24 object-cover bg-red-400 p-3 text-center cursor-pointer self-center mt-2"
+          onClick={() => fileRef.current.click()}
+          // src={formDatas.avatar || mainUser.avatar}
+          src={formDatas.avatar || mainUser?.avatar || ""}
+          alt="profile"
+          className="rounded-full h-24 w-24 object-cover text-center cursor-pointer self-center mt-1"
         />
         <p className="text-sm self-center">
           {fileUploadError ? (
@@ -33,8 +150,10 @@ export default function ProfileForm() {
         <input
           type="text"
           placeholder="Company name"
-          id="username"
+          id="companyName"
           defaultValue={mainUser.companyName}
+          onChange={handleChange}
+          value={formDatas.companyName}
           className="border p-3 rounded-lg"
         />
         <input
@@ -42,21 +161,28 @@ export default function ProfileForm() {
           placeholder="email"
           id="email"
           defaultValue={mainUser.email}
+          onChange={handleChange}
+          value={formDatas.email}
           className="border p-3 rounded-lg"
         />
         <input
           type="password"
           placeholder="************"
+          required
           id="password"
           defaultValue={mainUser.password}
+          onChange={handleChange}
           className="border p-3 rounded-lg"
         />
         <div className="flex text-start place-items-center   rounded-lg  p-1">
           <select
-            defaultValue={mainUser.country}
+            // defaultValue={mainUser.country}
+            value={formDatas.country}
+            onChange={handleChange}
             id="country"
             className="text-[20px] w-full  rounded-lg p-3"
           >
+            <option value="">Select Country</option>
             <option value="Canada">Canada</option>
             <option value="Finland">Finland</option>
             <option value="France">France</option>
@@ -118,7 +244,7 @@ export default function ProfileForm() {
             <option value="Zimbabwe">Zimbabwe</option>
           </select>
         </div>
-        <Button className="bg-gradient-to-r from-[rgba(66,133,244,0.9)] to-[rgba(66,133,244,0.7)] hover:from-[rgba(66,133,244,0.8)] hover:to-[rgba(66,133,244,0.6)] active:bg-none active:outline-none visited:outline-none visited:bg-none">
+        <Button type="submit" className="bg-gradient-to-r from-[rgba(66,133,244,0.9)] to-[rgba(66,133,244,0.7)] hover:from-[rgba(66,133,244,0.8)] hover:to-[rgba(66,133,244,0.6)] active:bg-none active:outline-none visited:outline-none visited:bg-none">
           {loading ? (
             <>
               <Spinner size="sm" />
