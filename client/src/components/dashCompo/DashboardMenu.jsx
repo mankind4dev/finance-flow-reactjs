@@ -62,7 +62,7 @@ export default function DashboardMenu() {
               onClick={handleSignOut}
               className=" py-1 text-[20px] cursor-pointer"
             >
-              <LiaSignOutAltSolid className="rotate-[-90deg] text-[30px] text-red-800" />
+              <LiaSignOutAltSolid className="rotate-[-90deg] hover:rotate-[-45deg] text-[28px] text-red-800" />
             </Sidebar.Item>
           </Sidebar.ItemGroup>
         </div>

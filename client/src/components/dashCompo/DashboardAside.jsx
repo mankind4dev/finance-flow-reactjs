@@ -46,7 +46,7 @@ const DashboardAside = () => {
             <span className="">{mainUser.companyName}</span>
           </p>
         </div>
-        <Sidebar.ItemGroup className="flex flex-col gap-2 pt-2">
+        <Sidebar.ItemGroup className="flex flex-col gap-2 pt-1">
           <Link to="/dashboard">
             <Sidebar.Item className=" py-1 text-[20px] mt-4">
               Dashboard

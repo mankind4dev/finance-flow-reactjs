@@ -7,8 +7,8 @@ import {
   deleteUserFailure,
   deleteUserSuccess,
   signOutStart,
-} from "../../redux/user/userSlice"; 
-import { IoMdMenu } from "react-icons/io"; 
+} from "../../redux/user/userSlice";
+import { IoMdMenu } from "react-icons/io";
 import DashboardMenu from "./dashboardMenu";
 import { FaTimes } from "react-icons/fa";
 
@@ -87,7 +87,7 @@ const DashboardHead = () => {
               <span className="text-red-800 truncate">{mainUser.email}</span>
             </p>
             {isSidebarOpen ? (
-              < FaTimes
+              <FaTimes
                 onClick={sidebarToggle}
                 className="flex sm:hidden justify-center text-center self-center text-[30px] cursor-pointer"
               />
@@ -100,7 +100,7 @@ const DashboardHead = () => {
           </div>
         </div>
       </Navbar>
-      {isSidebarOpen && <DashboardMenu />}
+      <div className="sm:hidden">{isSidebarOpen && <DashboardMenu />}</div>
     </>
   );
 };
