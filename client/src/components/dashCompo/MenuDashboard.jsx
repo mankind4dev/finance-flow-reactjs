@@ -10,7 +10,7 @@ import {
 } from "../../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 
-export default function DashboardMenu() {
+export default function MenuDashboard() {
   const dispatch = useDispatch();
   const handleSignOut = async () => {
     try {

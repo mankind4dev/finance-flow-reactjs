@@ -8,9 +8,9 @@ import {
   deleteUserSuccess,
   signOutStart,
 } from "../../redux/user/userSlice";
-import { IoMdMenu } from "react-icons/io";
-import DashboardMenu from "./dashboardMenu";
-import { FaTimes } from "react-icons/fa";
+import { IoMdMenu } from "react-icons/io"; 
+import { FaTimes } from "react-icons/fa"; 
+import MenuDashboard from "./MenuDashboard";
 
 const DashboardHead = () => {
   const { mainUser, loading, error } = useSelector((state) => state.finance);
@@ -100,7 +100,7 @@ const DashboardHead = () => {
           </div>
         </div>
       </Navbar>
-      <div className="sm:hidden">{isSidebarOpen && <DashboardMenu />}</div>
+      <div className="sm:hidden">{isSidebarOpen && <MenuDashboard />}</div>
     </>
   );
 };
